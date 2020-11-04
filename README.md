@@ -4,8 +4,6 @@
 
 ### Pre-requisitos 📋
 
-_Que cosas necesitas para instalar el software y como instalarlas_
-
 ```
 node.js
 ```
