@@ -18,7 +18,7 @@ express
 npm i
 ```
 
-## Ejecutando las pruebas ⚙️
+## Ejecutando el proyecto ⚙️
 
 ```
 npm run devstart
