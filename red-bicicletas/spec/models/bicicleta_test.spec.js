@@ -4,6 +4,8 @@ var Bicicleta = require('../../models/bicicleta');
 
 beforeEach(() => {Bicicleta.allBicis = [] });
 
+
+
 //poner nombre del metodo que estoy testeando
 describe('Bicicleta.allBicis', () => {
     //que quiero probar
