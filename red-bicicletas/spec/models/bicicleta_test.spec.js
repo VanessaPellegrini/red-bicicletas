@@ -1,7 +1,11 @@
 var Bicicleta = require('../../models/bicicleta');
 
-//antes de cada test limpia colecciones
 
+
+
+
+/*
+//antes de cada test limpia colecciones
 beforeEach(() => {Bicicleta.allBicis = [] });
 
 
@@ -41,4 +45,4 @@ describe('Bicicleta.finById', () => {
         expect(targetBici.color).toBe(aBici.color);
         expect(targetBici.modelo).toBe(aBici.modelo);
     })
-})
+})*/

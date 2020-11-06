@@ -1,4 +1,50 @@
-var Bicicleta = function (id, color, modelo, ubicacion) {
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+//se agrega bicicleta schema desde mongoose
+var bicicletaSchema = new Schema({
+    code: Number,
+    color: String,
+    modelo: String,
+    ubicacion: {
+        //pasamos otro json para identificar el numero
+        type: [Number], index: { type: '2dsphere', sparse: true }
+    }
+})
+//crea instancia estatico
+bicicletaSchema.statics.createInstance = function (code, color, modelo, ubicacion) {
+    return new this({
+        code: code,
+        color:color,
+        modelo:modelo,
+        ubicacion: ubicacion
+    })
+}
+
+bicicletaSchema.methods.toString = function () {
+    return `code: ${this.code}  | color: ${this.color}`
+}
+//orden de las bicicletas, static agrega directo a la BD
+bicicletaSchema.statics.allBicis = function (cb) {
+    //pasa por parametro el filtro y el callback
+    return this.find({}, cb)
+}
+
+bicicletaSchema.statics.add = function (aBici, cb) {
+    this.create(aBici, cb)
+}
+
+bicicletaSchema.statics.findByCode = function (aCode, cb) {
+    return this.findOne({ code: aCode }, cb)
+}
+
+bicicletaSchema.statics.removeByCode = function (aCode, cb) {
+    return this.deleteOne({ code: aCode }, cb)
+}
+
+module.exports = mongoose.model('Bicicleta', bicicletaSchema);
+
+/*var Bicicleta = function (id, color, modelo, ubicacion) {
     this.id = id;
     this.color = color;
     this.modelo = modelo;
@@ -23,7 +69,7 @@ Bicicleta.findById = function(aBiciId){
         return aBici;
     else
         throw new Error(`No existe una bicicleta con el id ${aBiciId}`);
-    
+
 }
 
 //metodo para eliminar
@@ -42,4 +88,4 @@ Bicicleta.removeById = function(aBiciId){
 //Bicicleta.add(a);
 //Bicicleta.add(b);
 
-module.exports = Bicicleta;
+module.exports = Bicicleta;*/
