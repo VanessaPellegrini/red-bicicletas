@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 var reservaSchema = new Schema({
   desde: Date,
   hasta: Date,
+  //se guarda como una referencia
   bicicleta: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Bicicleta'

@@ -10,7 +10,7 @@ describe("Bicicleta API", () => {
             var a = new Bicicleta(2, 'blanca', 'urbana', [-34.566932, -58.3808287]);
             Bicicleta.add(a);
 
-            request.get('http://localhost:3000/api/bicicletas', function (error, response, body) {
+            request.get('http://localhost:5000/api/bicicletas', function (error, response, body) {
                 expect(response.statusCode).toBe(200);
             })
         })
@@ -25,7 +25,7 @@ describe("POST BICICLETAS /create", () => {
         
         request.post({
             headers:headers,
-            url: 'http://localhost:3000/api/bicicletas/create',
+            url: 'http://localhost:5000/api/bicicletas/create',
             body: aBici
         },  function(error, response, body) {
                 expect(response.statusCode).toBe(200);

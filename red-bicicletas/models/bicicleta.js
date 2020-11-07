@@ -33,7 +33,8 @@ bicicletaSchema.statics.allBicis = function (cb) {
 bicicletaSchema.statics.add = function (aBici, cb) {
     this.create(aBici, cb)
 }
-
+//pasamos un codigo y el callback, trae el primero que encuentre y el criterio de 
+//filtrado es el codigo
 bicicletaSchema.statics.findByCode = function (aCode, cb) {
     return this.findOne({ code: aCode }, cb)
 }
