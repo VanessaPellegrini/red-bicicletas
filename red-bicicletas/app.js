@@ -10,6 +10,7 @@ var bicicletasRouter = require('./routes/bicicletas');
 var bicicletasAPIRouter = require('./routes/api/bicicletas');
 
 var app = express();
+//configuracion base de  dato
 var mongoose = require('mongoose');
 
 var mongoDB = process.env.MONGO_URI || 'mongodb://localhost/red_bicicletas';
@@ -21,7 +22,7 @@ mongoose.connect(mongoDB, {
 //just set up
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
-//in case of error conection
+//se suscribe al evento error
 db.on('error', console.error.bind(console, 'MongoDB connection error: '));
 
 // view engine setup
